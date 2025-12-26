@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>أرشيف زفاف طارق وسجى</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New&family=Noto+Naskh+Arabic&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sudan-gold: #d4af37;
+            --sudan-blue: #0066cc;
+            --sudan-red: #d21034;
+            --sudan-green: #00853e;
+            --earth-brown: #8b4513;
+            --sand-beige: #f5e8c8;
+            --dark-text: #333333;
+            --light-text: #f8f4e9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        html {
+            font-size: 16px;
+        }
+        
+        body {
+            background-color: var(--sand-beige);
+            color: var(--dark-text);
+            line-height: 1.6;
+            font-family: 'Amiri', serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            touch-action: manipulation;
+        }
+
+        h1, h2, h3, .password-title, .nav-links a {
+            font-family: 'El Messiri', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* MOBILE-FIRST ENHANCEMENTS */
+        @media (max-width: 768px) {
+            html {
+                font-size: 15px;
+            }
+            
+            .container {
+                padding: 0 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            html {
+                font-size: 14px;
+            }
+        }
+        
+        /* Password Protection Overlay */
+        #password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, var(--earth-brown), #5a2d0c);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+            padding: 15px;
+        }
+        
+        .password-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        @media (max-width: 480px) {
+            .password-container {
+                padding: 1.5rem;
+            }
+        }
+        
+        .password-logo {
+            font-size: 3rem;
+            color: var(--sudan-gold);
+            margin-bottom: 1.2rem;
+        }
+        
+        .password-title {
+            color: var(--earth-brown);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Scheherazade New', serif;
+        }
+        
+        .password-subtitle {
+            color: var(--dark-text);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+        
+        .password-form {
+            margin-top: 2rem;
+        }
+        
+        .password-input {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            font-size: 1.1rem;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            margin-bottom: 1.2rem;
+            text-align: center;
+            transition: all 0.3s;
+            font-family: 'Amiri', serif;
+            background: white;
+            min-height: 52px;
+        }
+        
+        .password-input:focus {
+            outline: none;
+            border-color: var(--sudan-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+        }
+        
+        .password-btn {
+            background: linear-gradient(to right, var(--sudan-red), var(--earth-brown));
+            color: var(--light-text);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-family: 'Scheherazade New', serif;
+            width: 100%;
+            min-height: 52px;
+            touch-action: manipulation;
+        }
+        
+        .password-btn:hover,
+        .password-btn:active {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, var(--earth-brown), var(--sudan-red));
+        }
+        
+        .password-error {
+            color: #d21034;
+            margin-top: 1rem;
+            font-weight: bold;
+            display: none;
+            font-size: 0.95rem;
+        }
+        
+        /* Main Site Content - Hidden Initially */
+        #site-content {
+            display: none;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--sudan-red), var(--earth-brown));
+            color: var(--light-text);
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem 0;
+            }
+        }
+        
+        .header-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.1) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, rgba(212, 175, 55, 0.1) 2px, transparent 2px);
+            background-size: 60px 60px;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 0 10px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-family: 'Scheherazade New', serif;
+            line-height: 1.2;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+                padding: 0 10px;
+            }
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            padding: 0 10px;
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Navigation - Mobile Optimized */
+        nav {
+            background-color: #000000;
+            padding: 0.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .nav-links li {
+            margin: 0;
+        }
+        
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.6rem 1rem;
+            position: relative;
+            transition: color 0.3s;
+            display: block;
+            border-radius: 6px;
+            touch-action: manipulation;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 0.3rem;
+                justify-content: space-around;
+            }
+            
+            .nav-links a {
+                font-size: 0.9rem;
+                padding: 0.5rem 0.8rem;
+                min-width: auto;
+            }
+        }
+        
+        .nav-links a:hover,
+        .nav-links a:active {
+            color: var(--sudan-gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background-color: var(--sudan-gold);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 80%;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 1.5rem 0;
+            }
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-right: 5px solid var(--sudan-red);
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        .section-title {
+            color: var(--earth-brown);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            font-family: 'Scheherazade New', serif;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--sudan-gold);
+        }
+        
+        .section-intro {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+        
+        /* Sub-section styles */
+        .subsection-title {
+            color: var(--sudan-red);
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            font-family: 'Scheherazade New', serif;
+            text-align: center;
+        }
+        
+        .subsection-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 2px;
+            background-color: var(--sudan-gold);
+        }
+        
+        /* Henna Photos Sections */
+        .henna-small-section {
+            text-align: center;
+        }
+        
+        .henna-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .henna-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .henna-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+        }
+        
+        .henna-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            height: 180px;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+        
+        @media (max-width: 480px) {
+            .henna-item {
+                height: 160px;
+            }
+        }
+        
+        .henna-item:active {
+            transform: translateY(-5px);
+        }
+        
+        .henna-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .henna-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: var(--light-text);
+            padding: 0.8rem;
+            font-size: 0.85rem;
+        }
+        
+        /* Big Henna Photos Carousel */
+        .carousel-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 1.5rem auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            touch-action: pan-y;
+        }
+        
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .carousel-item img {
+                height: 350px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .carousel-item img {
+                height: 280px;
+            }
+        }
+        
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: var(--light-text);
+            padding: 1.2rem;
+            text-align: center;
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(212, 175, 55, 0.7);
+            color: var(--dark-text);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+            touch-action: manipulation;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @media (max-width: 480px) {
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        .carousel-nav:active {
+            background-color: var(--sudan-gold);
+            transform: translateY(-50%) scale(0.95);
+        }
+        
+        .carousel-nav.prev {
+            left: 10px;
+        }
+        
+        .carousel-nav.next {
+            right: 10px;
+        }
+        
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.2rem;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            touch-action: manipulation;
+        }
+        
+        .dot.active {
+            background-color: var(--earth-brown);
+        }
+        
+        /* Wedding Photos Section */
+        .wedding-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .wedding-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .wedding-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+        
+        .wedding-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            transition: all 0.3s;
+            height: 260px;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+        
+        @media (max-width: 480px) {
+            .wedding-item {
+                height: 220px;
+            }
+        }
+        
+        .wedding-item:active {
+            transform: scale(1.02);
+        }
+        
+        .wedding-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .wedding-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: var(--light-text);
+            padding: 0.8rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        /* Video Archive Sections */
+        .video-instructions {
+            background-color: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--sudan-gold);
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: left;
+            font-size: 1rem;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+        }
+        
+        .video-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .video-item:active {
+            transform: translateY(-5px);
+        }
+        
+        .video-embed {
+            width: 100%;
+            height: 200px;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 480px) {
+            .video-embed {
+                height: 180px;
+            }
+        }
+        
+        .video-info {
+            padding: 1.2rem;
+            text-align: left;
+        }
+        
+        .video-title {
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: var(--earth-brown);
+            font-size: 1.2rem;
+        }
+        
+        .video-desc {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        /* Form Section */
+        .form-section {
+            text-align: center;
+        }
+        
+        .form-description {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+        
+        .form-btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--sudan-red), var(--earth-brown));
+            color: var(--light-text);
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-family: 'Scheherazade New', serif;
+            touch-action: manipulation;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        
+        .form-btn:active {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, var(--earth-brown), var(--sudan-red));
+        }
+        
+        .form-btn i {
+            margin-left: 8px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--earth-brown), #5a2d0c);
+            color: var(--light-text);
+            padding: 2.5rem 0 1.2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 1rem;
+            padding: 0 1rem;
+        }
+        
+        .footer-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--sudan-gold);
+            font-family: 'Scheherazade New', serif;
+        }
+        
+        .footer-links {
+            list-style: none;
+            text-align: center;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.6rem;
+        }
+        
+        .footer-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--sudan-gold);
+        }
+        
+        .copyright {
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* ==================== */
+        /* LIGHTBOX / MODAL STYLES - Mobile Optimized */
+        /* ==================== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 15px;
+            touch-action: manipulation;
+        }
+        
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .lightbox-content {
+            position: relative;
+            max-width: 95%;
+            max-height: 95%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            touch-action: pan-y pinch-zoom;
+        }
+        
+        .lightbox-caption {
+            color: white;
+            text-align: center;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-top: 0.8rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .lightbox-close {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: transform 0.3s;
+            z-index: 1001;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            touch-action: manipulation;
+        }
+        
+        @media (max-width: 768px) {
+            .lightbox-close {
+                top: 15px;
+                right: 15px;
+                font-size: 1.8rem;
+                width: 45px;
+                height: 45px;
+            }
+        }
+        
+        .lightbox-close:active {
+            transform: scale(1.2);
+            color: var(--sudan-gold);
+        }
+        
+        .lightbox-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 1rem;
+            transition: transform 0.3s;
+            opacity: 0.7;
+            z-index: 1001;
+            touch-action: manipulation;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            .lightbox-nav {
+                font-size: 2rem;
+                padding: 0.8rem;
+                width: 50px;
+                height: 50px;
+            }
+        }
+        
+        .lightbox-nav:active {
+            transform: translateY(-50%) scale(1.2);
+            opacity: 1;
+            color: var(--sudan-gold);
+        }
+        
+        .lightbox-prev {
+            left: 15px;
+        }
+        
+        .lightbox-next {
+            right: 15px;
+        }
+        
+        @media (max-width: 480px) {
+            .lightbox-nav {
+                font-size: 1.8rem;
+                width: 45px;
+                height: 45px;
+            }
+            
+            .lightbox-prev {
+                left: 10px;
+            }
+            
+            .lightbox-next {
+                right: 10px;
+            }
+        }
+        
+        .lightbox-counter {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+        }
+        
+        /* Swipe detection for carousel on mobile */
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Mobile-specific touch improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .nav-links a:hover::after {
+                width: 0;
+            }
+            
+            .nav-links a:active {
+                background: rgba(212, 175, 55, 0.2);
+            }
+            
+            .henna-item:hover,
+            .wedding-item:hover,
+            .video-item:hover {
+                transform: none;
+            }
+            
+            .form-btn:hover {
+                transform: none;
+            }
+        }
+        
+        /* Prevent zoom on input focus on mobile */
+        @media (max-width: 768px) {
+            input,
+            textarea,
+            select {
+                font-size: 16px !important;
+            }
+        }
+        
+        /* Loading animation */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9998;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+        }
+        
+        .loading.active {
+            display: flex;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--sudan-gold);
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 1rem;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--earth-brown);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 1002;
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            max-width: 90%;
+            text-align: center;
+        }
+        
+        .toast.active {
+            display: flex;
+            animation: fadeInUp 0.3s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate(-50%, 20px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Password Protection Overlay -->
+    <div id="password-overlay">
+        <div class="password-container">
+            <div class="password-logo">
+                <i class="fas fa-lock"></i>
+            </div>
+            <h2 class="password-title">Wedding Photos</h2>
+            <p class="password-subtitle">Private Collection - Password Required</p>
+            
+            <form class="password-form" id="password-form">
+                <input type="password" class="password-input" id="password-input" placeholder="Enter password" required autocomplete="current-password">
+                <button type="submit" class="password-btn" id="password-submit">
+                    <i class="fas fa-unlock-alt"></i> Enter Archive
+                </button>
+                <div class="password-error" id="password-error">
+                    Incorrect password. Please try again.
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Loading Overlay -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message"></span>
+    </div>
+    
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-nav lightbox-next" id="lightbox-next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <div class="lightbox-content">
+            <img class="lightbox-img" id="lightbox-img" src="" alt="">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+            <div class="lightbox-counter" id="lightbox-counter"></div>
+        </div>
+    </div>
+    
+    <!-- Main Site Content (Hidden until correct password is entered) -->
+    <div id="site-content">
+        <!-- Header -->
+        <header>
+            <div class="header-pattern"></div>
+            <div class="container header-content">
+                <h1>أرشيف زفاف طارق وسجى</h1>
+                <p class="subtitle">الزفاف المتدرج</p>
+            </div>
+        </header>
+        
+        <!-- Navigation -->
+        <nav>
+            <div class="container">
+                <ul class="nav-links">
+                  <li><a href="#home">الرئيسية</a></li>
+                  <li><a href="#henna-small">الحنة الصغيرة</a></li>
+                  <li><a href="#henna-big">الحنة الكبيرة</a></li>
+                  <li><a href="#wedding">صور الزفاف</a></li>
+                  <li><a href="#videos">أرشيف الفيديو</a></li>
+                  <li><a href="#upload">رفع الملفات</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="container main-content">
+            <!-- Welcome Section -->
+            <section id="home" class="section">
+            <h2 class="section-title">مرحباً بكم في أرشيف زفاف طارق وسجى</h2>
+            
+            <p class="section-intro">
+                تم إنشاء هذا الأرشيف بكل حب لتوثيق والاحتفال بالرباط المقدس بين طارق وسجى 🤍
+                من خلال صور خالدة وفيديوهات نابعة من القلب، نسعى لحفظ لحظات الفرح، الحب، والذكريات التي لا تُنسى في يومهم المميز — لتظل ذكرى عزيزة نعتز بها مدى الحياة 📸🎥
+            </p>
+
+            <p class="section-intro" style="font-size: 1.4rem; font-family: 'Amiri', serif; color: var(--earth-brown);">
+                بارك الله لكما، وبارك عليكما، وجمع بينكما في خير
+            </p>
+
+            <p class="section-intro" style="font-style: italic; color: var(--earth-brown); margin-top: 1.5rem; font-size: 1rem;">
+                <i class="fas fa-mouse-pointer"></i> اضغط على أي صورة لعرضها بالشاشة الكاملة.
+            </p>
+        </section>
+            
+            <!-- Small Henna Photos -->
+            <section id="henna-small" class="section henna-small-section">
+                <h2 class="section-title">الحنة الصغيرة</h2>
+                <p class="section-intro">صور من احتفالية الحنة الصغيرة لطارق ✨</p>
+                
+                <div class="henna-grid" id="small-henna-grid">
+                    <!-- Henna items will be added by JavaScript -->
+                </div>
+                
+                <!-- Small Henna Videos Section -->
+                <h3 class="subsection-title">فيديوهات الحنة الصغيرة</h3>
+                <p class="section-intro">توثيق مرئي لمراسم الحنة الصغيرة.</p>
+                
+                <div class="video-grid" id="small-henna-videos-grid">
+                    <!-- Small henna videos will be added by JavaScript -->
+                </div>
+            </section>
+            
+            <!-- Big Henna Photos Carousel -->
+            <section id="henna-big" class="section">
+                <h2 class="section-title">الحنة الكبيرة</h2>
+                <p class="section-intro">صور من احتفالية حنة طارق الكبيرة 🎉</p>
+                
+                <div class="carousel-container">
+                    <div class="carousel" id="henna-carousel">
+                        <!-- Henna carousel items will be added by JavaScript -->
+                    </div>
+                    <button class="carousel-nav prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-nav next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="carousel-dots" id="henna-dots">
+                    <!-- Dots will be added by JavaScript -->
+                </div>
+                
+                <!-- Big Henna Videos Section -->
+                <h3 class="subsection-title">فيديوهات الحنة الكبيرة</h3>
+                <p class="section-intro">توثيق مرئي لمراسم الحنة الكبيرة.</p>
+                <div class="video-grid" id="big-henna-videos-grid">
+                    <!-- Big henna videos will be added by JavaScript -->
+                </div>
+            </section>
+            
+            <!-- Wedding Photos -->
+            <section id="wedding" class="section">
+              <h2 class="section-title">صور الزفاف</h2>
+              <p class="section-intro">لحظات مميزة من حفل زفاف طارق وسجى 💍🤍</p>
+              
+              <div class="wedding-grid" id="wedding-photo-grid">
+                  </div>
+              
+              <h3 class="subsection-title">فيديوهات مراسم الزفاف</h3>
+              <p class="section-intro">توثيق مرئي لمراسم حفل الزفاف.</p>
+              
+              <div class="video-grid" id="wedding-videos-grid">
+                  </div>
+            </section>
+            
+            <!-- Video Archive -->
+            <section id="videos" class="section">
+                <h2 class="section-title">الأرشيف المرئي الكامل</h2>
+                <p class="section-intro">جميع فيديوهات الزفاف منظمة حسب الفئة.</p>
+                
+                <div class="video-grid" id="video-archive-grid">
+                    <!-- Video items will be added by JavaScript -->
+                </div>
+            </section>
+            
+            <!-- Upload Form Section -->
+            <section id="upload" class="section form-section">
+              <h2 class="section-title">شاركونا فيديوهات وصور الزفاف</h2>
+              <p class="form-description">يسعدنا جداً أن نرى اللحظات المميزة التي التقطتموها خلال حفل زفاف طارق وسجى. مشاركاتكم تزيدنا فرحاً.</p>
+              
+              <a href="https://forms.gle/Sz7mwhqg6qDDDfrw6" target="_blank" class="form-btn">
+                  <i class="fas fa-upload"></i> ارفع الصور والفيديوهات هنا
+              </a>
+              
+              <p style="margin-top: 1.5rem; font-style: italic; font-size: 1rem;">سيتم توجيهك إلى نموذج Google Form آمن</p>
+          </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer>
+          <div class="container">
+              <div class="footer-content">
+                  <div class="footer-section">
+                      <h3 class="footer-title">أرشيف زفاف طارق وسجى</h3>
+                      <p>أبرز لحظات وذكريات زفاف طارق وسجى</p>
+                  </div>
+                  <div class="footer-section">
+                      <h3 class="footer-title">روابط سريعة</h3>
+                      <ul class="footer-links">
+                          <li><a href="#home">الرئيسية</a></li>
+                          <li><a href="#henna-small">الحنة الصغيرة</a></li>
+                          <li><a href="#henna-big">الحنة الكبيرة</a></li>
+                          <li><a href="#wedding">صور الزفاف</a></li>
+                          <li><a href="#videos">أرشيف الفيديو</a></li>
+                          <li><a href="#upload">رفع الملفات</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="copyright">
+                  <p>© 2025 زفاف طارق. جميع الحقوق محفوظة لطارق وسجى. | احتفالاً بزفاف طارق وسجى</p>
+              </div>
+          </div>
+       </footer>    
+    
+    <script>
+        // ============================================
+      // 1. GLOBAL DATA & STATE
+      // ============================================
+      let allImages = [];
+      let currentImageIndex = 0;
+      let currentHennaSlide = 0;
+
+      const hennaSmallItems = [
+          { img: 'https://lh3.googleusercontent.com/d/1NUnSR6nY245EOZytYC5bOHaUemC4Q5tF', caption: 'Traditional Nubian henna design' },
+          { img: 'https://lh3.googleusercontent.com/d/1vek5wVtwRjdQWfVtIY1GImsCB7semV_K', caption: 'Traditional Nubian henna design' }
+      ];
+
+      const hennaBigItems = [
+          { img: 'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', caption: 'Full bridal henna - Complete henna design covering hands and feet' },
+      ];
+
+      const weddingItems = [
+          { img: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', caption: 'Bride in traditional Sudanese wedding attire with gold jewelry' },
+      ];
+
+      const smallHennaVideos = [
+          { id: '1rKXEWd5TMwIHnc4Q88am5lT7iYn0RZ-B', title: 'Small Henna Preparation', desc: 'Preparation and beginning of the small henna ceremony' },
+      ];
+
+      const bigHennaVideos = [
+          { id: '4cD5eF6gH7iJ8kL9mN0oP1', title: 'Big Henna Rituals', desc: 'Complete big henna ceremony with traditional rituals' },
+      ];
+
+      const weddingVideos = [
+          { id: '7fG8hI9jK0lM1nO2pQ3rS4', title: 'Wedding Procession', desc: 'Traditional wedding procession (Zeaffa) to the wedding venue' },
+      ];
+
+      const videoArchiveItems = [
+          { id: '1tZ7mYkHqyW8XpX9oQrZsT', title: 'Complete Wedding Documentation', desc: 'Full documentation of the entire wedding celebration' },
+      ];
+
+      // Combine all for Lightbox mapping
+      allImages = [...hennaSmallItems, ...hennaBigItems, ...weddingItems];
+
+      // ============================================
+      // 2. CORE UTILITY FUNCTIONS
+      // ============================================
+
+      async function sha256(message) {
+          const msgBuffer = new TextEncoder().encode(message);
+          const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+          const hashArray = Array.from(new Uint8Array(hashBuffer));
+          return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+      }
+
+      function createVideoItem(video) {
+          const videoItem = document.createElement('div');
+          videoItem.className = 'video-item';
+          videoItem.innerHTML = `
+              <div class="video-embed">
+                  <iframe src="https://drive.google.com/file/d/${video.id}/preview" width="100%" height="100%" frameborder="0" allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="video-info">
+                  <h3 class="video-title">${video.title}</h3>
+                  <p class="video-desc">${video.desc}</p>
+              </div>`;
+          return videoItem;
+      }
+
+      // ============================================
+      // 3. SITE CONTENT INITIALIZATION
+      // ============================================
+
+      function initializeSiteContent() {
+          // Force reset all images array just in case
+          allImages = [...hennaSmallItems, ...hennaBigItems, ...weddingItems];
+
+          // 1. Small Henna Grid
+          const hennaGrid = document.getElementById('small-henna-grid');
+          if (hennaGrid) {
+              hennaGrid.innerHTML = '';
+              hennaSmallItems.forEach((item, index) => {
+                  const div = document.createElement('div');
+                  div.className = 'henna-item';
+                  div.innerHTML = `<img src="${item.img}" alt="${item.caption}"><div class="henna-caption">${item.caption}</div>`;
+                  div.onclick = () => window.openLightbox(index);
+                  hennaGrid.appendChild(div);
+              });
+          }
+
+          // 2. Small Henna Videos
+          const smallHennaVideosGrid = document.getElementById('small-henna-videos-grid');
+          if (smallHennaVideosGrid) {
+              smallHennaVideosGrid.innerHTML = '';
+              smallHennaVideos.forEach(v => smallHennaVideosGrid.appendChild(createVideoItem(v)));
+          }
+
+          // 3. Big Henna Carousel
+          const hennaCarousel = document.getElementById('henna-carousel');
+          const hennaDotsContainer = document.getElementById('henna-dots');
+          if (hennaCarousel && hennaDotsContainer) {
+              hennaCarousel.innerHTML = '';
+              hennaDotsContainer.innerHTML = '';
+              hennaBigItems.forEach((item, index) => {
+                  const imgIdx = hennaSmallItems.length + index;
+                  const div = document.createElement('div');
+                  div.className = 'carousel-item';
+                  div.innerHTML = `<img src="${item.img}"><div class="carousel-caption"><h3>${item.caption.split(' - ')[0]}</h3><p>${item.caption.split(' - ')[1] || ''}</p></div>`;
+                  div.onclick = () => window.openLightbox(imgIdx);
+                  hennaCarousel.appendChild(div);
+
+                  const dot = document.createElement('div');
+                  dot.className = `dot ${index === 0 ? 'active' : ''}`;
+                  dot.onclick = () => goToHennaSlide(index);
+                  hennaDotsContainer.appendChild(dot);
+              });
+          }
+
+          // 4. Big Henna Videos
+          const bigHennaVideosGrid = document.getElementById('big-henna-videos-grid');
+          if (bigHennaVideosGrid) {
+              bigHennaVideosGrid.innerHTML = '';
+              bigHennaVideos.forEach(v => bigHennaVideosGrid.appendChild(createVideoItem(v)));
+          }
+
+          // 5. Wedding Grid
+          const weddingGrid = document.getElementById('wedding-photo-grid');
+          if (weddingGrid) {
+              weddingGrid.innerHTML = '';
+              weddingItems.forEach((item, index) => {
+                  const imgIdx = hennaSmallItems.length + hennaBigItems.length + index;
+                  const div = document.createElement('div');
+                  div.className = 'wedding-item';
+                  div.innerHTML = `<img src="${item.img}"><div class="wedding-caption">${item.caption}</div>`;
+                  div.onclick = () => window.openLightbox(imgIdx);
+                  weddingGrid.appendChild(div);
+              });
+          }
+
+          // 6. Wedding Videos
+          const weddingVideosGrid = document.getElementById('wedding-videos-grid');
+          if (weddingVideosGrid) {
+              weddingVideosGrid.innerHTML = '';
+              weddingVideos.forEach(v => weddingVideosGrid.appendChild(createVideoItem(v)));
+          }
+
+          // 7. Video Archive
+          const videoArchiveGrid = document.getElementById('video-archive-grid');
+          if (videoArchiveGrid) {
+              videoArchiveGrid.innerHTML = '';
+              videoArchiveItems.forEach(v => videoArchiveGrid.appendChild(createVideoItem(v)));
+          }
+
+          // Initialize UI Controls
+          setupCarouselControls();
+          setupLightbox();
+          setupMobileTouchEvents();
+      }
+
+      function showSiteContent() {
+          const overlay = document.getElementById('password-overlay');
+          const content = document.getElementById('site-content');
+          if (overlay) overlay.style.display = 'none';
+          if (content) content.style.display = 'block';
+          
+          // Always trigger content build when showing site
+          initializeSiteContent();
+      }
+
+      // ============================================
+      // 4. LIGHTBOX, CAROUSEL & TOUCH LOGIC
+      // ============================================
+
+      window.openLightbox = function(index) {
+          currentImageIndex = index;
+          const lightbox = document.getElementById('lightbox');
+          updateLightbox();
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
+      }
+
+      function updateLightbox() {
+          const img = document.getElementById('lightbox-img');
+          const cap = document.getElementById('lightbox-caption');
+          const count = document.getElementById('lightbox-counter');
+          if(img && cap && count) {
+              img.src = allImages[currentImageIndex].img;
+              cap.textContent = allImages[currentImageIndex].caption;
+              count.textContent = `${currentImageIndex + 1} / ${allImages.length}`;
+          }
+      }
+
+      function setupLightbox() {
+          const lightbox = document.getElementById('lightbox');
+          if (!lightbox) return;
+
+          document.getElementById('lightbox-close').onclick = () => {
+              lightbox.classList.remove('active');
+              document.body.style.overflow = 'auto';
+          };
+          
+          document.getElementById('lightbox-next').onclick = (e) => { e.stopPropagation(); nextImage(); };
+          document.getElementById('lightbox-prev').onclick = (e) => { e.stopPropagation(); prevImage(); };
+          
+          lightbox.onclick = (e) => { if(e.target === lightbox) lightbox.classList.remove('active'); };
+      }
+
+      function nextImage() { currentImageIndex = (currentImageIndex + 1) % allImages.length; updateLightbox(); }
+      function prevImage() { currentImageIndex = (currentImageIndex - 1 + allImages.length) % allImages.length; updateLightbox(); }
+
+      function goToHennaSlide(slideIndex) {
+          const carousel = document.getElementById('henna-carousel');
+          const dots = document.querySelectorAll('#henna-dots .dot');
+          currentHennaSlide = slideIndex;
+          if(carousel) carousel.style.transform = `translateX(-${currentHennaSlide * 100}%)`;
+          dots.forEach((dot, idx) => dot.classList.toggle('active', idx === currentHennaSlide));
+      }
+
+      function nextHennaSlide() { goToHennaSlide((currentHennaSlide + 1) % hennaBigItems.length); }
+      function prevHennaSlide() { goToHennaSlide((currentHennaSlide - 1 + hennaBigItems.length) % hennaBigItems.length); }
+
+      function setupCarouselControls() {
+          const nextBtn = document.querySelector('#henna-big .carousel-nav.next');
+          const prevBtn = document.querySelector('#henna-big .carousel-nav.prev');
+          if (nextBtn) nextBtn.onclick = nextHennaSlide;
+          if (prevBtn) prevBtn.onclick = prevHennaSlide;
+      }
+
+      function setupMobileTouchEvents() {
+          const container = document.querySelector('.carousel-container');
+          if (!container) return;
+          let startX = 0;
+          container.ontouchstart = (e) => startX = e.touches[0].clientX;
+      container.ontouchend = (e) => {
+          const diff = startX - e.changedTouches[0].clientX;
+          if (Math.abs(diff) > 50) diff > 0 ? nextHennaSlide() : prevHennaSlide();
+      };
+  }
+
+  // ============================================
+  // 5. THE "ON LOAD" BOOTSTRAPPER
+  // ============================================
+
+  document.addEventListener('DOMContentLoaded', function() {
+      const CORRECT_PASSWORD_HASH = "ccceb262b3a8276c43275f73ea2be7bc5cdc87ff9bbd4093467d56ba2378e66e";
+      
+      // Check Authentication Status
+      const isAuthenticated = localStorage.getItem('archiveAuthenticated');
+      if (isAuthenticated === 'true') {
+          showSiteContent();
+      } else {
+          document.getElementById('password-overlay').style.display = 'flex';
+      }
+
+      // Handle Password Submission
+      const pwdForm = document.getElementById('password-form');
+      if (pwdForm) {
+          pwdForm.onsubmit = async function(e) {
+              e.preventDefault();
+              const btn = document.getElementById('password-submit');
+              const input = document.getElementById('password-input');
+              const err = document.getElementById('password-error');
+              
+              btn.disabled = true;
+              const hash = await sha256(input.value.trim());
+              
+              if (hash === CORRECT_PASSWORD_HASH) {
+                  localStorage.setItem('archiveAuthenticated', 'true');
+                  showSiteContent();
+              } else {
+                  err.style.display = 'block';
+                  input.value = '';
+                  btn.disabled = false;
+                  setTimeout(() => err.style.display = 'none', 3000);
+              }
+          };
+      }
+  });
+</script>
+</body>
+</html>
