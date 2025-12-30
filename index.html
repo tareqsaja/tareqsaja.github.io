@@ -61,12 +61,83 @@
             .container {
                 padding: 0 12px;
             }
+
+            /* 1. Reduce rows and change icon layout */
+            .desktop {
+                display: grid !important; /* Switch to Grid for better control */
+                grid-template-rows: repeat(5, 1fr); /* Limit to 5 rows vertically */
+                grid-auto-flow: column; /* Fill columns first, then move right */
+                gap: 15px; /* Tighter gap for smaller screens */
+                padding: 10px;
+                overflow-x: auto; /* Allow horizontal scrolling if you have many icons */
+            }
+
+            /* 2. Raise the Start Menu higher */
+            #start-menu {
+                bottom: 50px !important; /* Pushes the menu up from the taskbar */
+                left: 5px;
+                width: 280px; /* Slightly narrower for mobile */
+            }
+            
+            /* 3. Ensure the window system accounts for the higher menu */
+            .window {
+                width: 100% !important;
+                height: calc(100dvh - 40px) !important; /* Using dvh to avoid browser bar issues */
+                top: 0 !important;
+                left: 0 !important;
+                position: fixed;
+            }
+
+            .resizer { display: none; }
+            
+            .taskbar-window-btn {
+                min-width: 60px;
+                font-size: 10px;
+            }
         }
         
         @media (max-width: 480px) {
             html {
                 font-size: 14px;
             }
+            
+            .container {
+                padding: 0 12px;
+            }
+
+            /* 1. Reduce rows and change icon layout */
+            .desktop {
+                display: grid !important; /* Switch to Grid for better control */
+                grid-template-rows: repeat(5, 1fr); /* Limit to 5 rows vertically */
+                grid-auto-flow: column; /* Fill columns first, then move right */
+                gap: 15px; /* Tighter gap for smaller screens */
+                padding: 10px;
+                overflow-x: auto; /* Allow horizontal scrolling if you have many icons */
+            }
+
+            /* 2. Raise the Start Menu higher */
+            #start-menu {
+                bottom: 50px !important; /* Pushes the menu up from the taskbar */
+                left: 5px;
+                width: 280px; /* Slightly narrower for mobile */
+            }
+            
+            /* 3. Ensure the window system accounts for the higher menu */
+            .window {
+                width: 100% !important;
+                height: calc(100dvh - 40px) !important; /* Using dvh to avoid browser bar issues */
+                top: 0 !important;
+                left: 0 !important;
+                position: fixed;
+            }
+
+            .resizer { display: none; }
+            
+            .taskbar-window-btn {
+                min-width: 60px;
+                font-size: 10px;
+            }
+
         }
         
         /* Password Protection Overlay */
