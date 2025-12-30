@@ -1555,7 +1555,7 @@
       const CORRECT_PASSWORD_HASH = "4eb011bd4197d919d60bbbb87c0206929940f3da14aba2a842b1d27d8f39f768";
       
       // Check Authentication Status
-      const isAuthenticated = localStorage.getItem('archiveAuthenticated');
+      const isAuthenticated = localStorage.getItem('9493514393');
       if (isAuthenticated === 'true') {
           showSiteContent();
       } else {
@@ -1575,7 +1575,7 @@
               const hash = await sha256(input.value.trim());
               
               if (hash === CORRECT_PASSWORD_HASH) {
-                  localStorage.setItem('archiveAuthenticated', 'true');
+                  localStorage.setItem('9493514393', 'true');
                   showSiteContent();
               } else {
                   err.style.display = 'block';
