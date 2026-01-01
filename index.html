@@ -601,6 +601,34 @@
                 gap: 1.2rem;
             }
         }
+
+        /* Hide items that are over the limit */
+        .wedding-item.hidden {
+            display: none;
+        }
+
+        /* Style for the Show More container */
+        .show-more-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .show-more-btn {
+            background-color: var(--earth-brown);
+            color: white;
+            border: 2px solid var(--sudan-gold);
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-family: 'Amiri', serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .show-more-btn:hover {
+            background-color: var(--sudan-red);
+            transform: translateY(-2px);
+        }
         
         @media (max-width: 480px) {
             .wedding-grid {
@@ -680,6 +708,10 @@
             overflow: hidden;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
+        }
+      
+        .video-item.hidden {
+            display: none;
         }
         
         .video-item:active {
@@ -1360,6 +1392,7 @@
                 <div class="video-grid" id="small-henna-videos-grid">
                     <!-- Small henna videos will be added by JavaScript -->
                 </div>
+
             </section>
             
             <!-- Big Henna Photos Carousel -->
@@ -1393,12 +1426,23 @@
               
               <div class="wedding-grid" id="wedding-photo-grid">
                   </div>
+
+              <div class="show-more-container" id="wedding-show-more-container">
+                <button class="show-more-btn" id="wedding-show-more-btn">
+                    عرض المزيد من الصور <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
               
               <h3 class="subsection-title">فيديوهات مراسم الزفاف</h3>
               <p class="section-intro">توثيق مرئي لمراسم حفل الزفاف.</p>
               
               <div class="video-grid" id="wedding-videos-grid">
-                  </div>
+              </div>
+              <div class="show-more-container" id="video-show-more-container">
+                    <button class="show-more-btn" id="video-show-more-btn">
+                        عرض المزيد من الفيديوهات <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
             </section>
             
             <!-- Video Archive -->
@@ -1504,10 +1548,7 @@
           { img: 'https://lh3.googleusercontent.com/d/1fHfwr7Oq9X2lNJxVRJKu6T9WmQGEPumu', caption: 'The bride, groom and his extended family 9' },
           { img: 'https://lh3.googleusercontent.com/d/1lwkCXPig7ZI7R_z1IVBffKWkJ87tAdGa', caption: 'The bride, groom and his extended family 10' },
           { img: 'https://lh3.googleusercontent.com/d/1uNTSyWGv4kGoAbmbs_CDhqiLOah8zdZN', caption: 'The bride, groom and his extended family 11' },
-          { img: 'https://lh3.googleusercontent.com/d/1RIzOWwEk7V_JfXC6o_zLu-uD6vqHfBc5', caption: 'The bride, groom and his extended family 12' },
-
-          { img: 'https://lh3.googleusercontent.com/d/1jhSJFbdHrw1FZt-Ui2piAZsm4CTXV1Ah', caption: 'Wedding venue 1' },
-          { img: 'https://lh3.googleusercontent.com/d/1JdYrHKLsy03qeNJTd9E240TXM2bCO2eM', caption: 'Wedding Venue 2' },
+          { img: 'https://lh3.googleusercontent.com/d/1RIzOWwEk7V_JfXC6o_zLu-uD6vqHfBc5', caption: 'The bride, groom and his extended family 12' }, 
 
           { img: 'https://lh3.googleusercontent.com/d/1YjvdAeMeVe9f3QTfGnkeE6NT5C6kaMSW', caption: 'Tariq, Saja and Huboba' }, 
           
@@ -1516,16 +1557,46 @@
 
           { img: 'https://lh3.googleusercontent.com/d/1831DiV5pCcDzaXVXQctQqFoTmhdH1uY7', caption: 'Bridge and Groom 1'},
           { img: 'https://lh3.googleusercontent.com/d/1q-DmJlY07Ofi101KQ71GEul043W1vgeH', caption: 'Bridge and Groom 2' },
+          { img: 'https://lh3.googleusercontent.com/d/1vIwGrV_A-m55sFpsayoaTlZA2pwXCWSq', caption: 'Bride and Groom 3' },
+          { img: 'https://lh3.googleusercontent.com/d/1q5oS_IGqYWXRgI9QKA7Mslpmm9vnYziv', caption: 'Bridge and Groom 4' },
+          { img: 'https://lh3.googleusercontent.com/d/14Odp1zRmJ9x5oQUaH0mOlU73lcNKwWhH', caption: 'Bridge and Groom 5' },
+
+          { img: 'https://lh3.googleusercontent.com/d/1G0V9mc3L_7WcMGzkM-Tu0H_YfKr3RixZ', caption: 'Bride 1' },
+          { img: 'https://lh3.googleusercontent.com/d/1RC-c6HKxTtIetJFhUTUcSJzV55K54U4r', caption: 'Bride 2' },
+          { img: 'https://lh3.googleusercontent.com/d/1FzoM9GbAsk9ujTLJ3dyK6Q2J8mx4cMSE', caption: 'Bride 3' },
+          { img: 'https://lh3.googleusercontent.com/d/1PAD4zusFIRnLpsTxuzUq-zt3bCOLFvaO', caption: 'Bride 4' },
+          { img: 'https://lh3.googleusercontent.com/d/1rAqE1PnSOQvUHOtT7aNtDqyYLx70IHyt', caption: 'Bridge 5' },
+          { img: 'https://lh3.googleusercontent.com/d/1Ur_pYDoF-409FLCvceZ7beZbitIwC0Rb', caption: 'Bridge 6' },
+          { img: 'https://lh3.googleusercontent.com/d/1uAxUjhRnBS6ULCzv7yawW9kKWoQypolx', caption: 'Bridge 7' },
+          { img: 'https://lh3.googleusercontent.com/d/1kgVA0dU6jeRoULcZhIhMEUtaIxpcJxP4', caption: 'Bridge and Groom 5' },
+          { img: 'https://lh3.googleusercontent.com/d/1UC__EQpvNcgSmRmBSS_9HzmSoNIOwbAK', caption: 'Bridge and Groom 6' },
+          { img: 'https://lh3.googleusercontent.com/d/16K2Dhj2OBKyigNLIVcENrOq3o8CKVgup', caption: 'Bridge and Groom 7' },
+          { img: 'https://lh3.googleusercontent.com/d/1aED1pBZA3N4__bQVj94jaYSHlu1BYA9u', caption: 'Bridge and Groom 8' },
+          { img: 'https://lh3.googleusercontent.com/d/1wczGliI9Qv8QEkRW-MkLnzl5NeDzeKSZ', caption: 'Bridge and Groom 9' },
+          { img: 'https://lh3.googleusercontent.com/d/1RCNj7pJksgLOmtrvID6JV0jP_vozkTqu', caption: 'Bridge and Groom 10' },
+
+
           { img: 'https://lh3.googleusercontent.com/d/16pH3p-ZPgu5-ApLwfO9WblgUjYVCm_B6', caption: 'Wedding Celebration 1' },
-          
+
+          { img: 'https://lh3.googleusercontent.com/d/10FdxTW6kRRnVBhUsuaH5NzyTjs_aR1RX', caption: 'Amir and Amjad 1' }, 
+          { img: 'https://lh3.googleusercontent.com/d/1je9Snw7NAs_BG5mYH-IAQukLJbOfT_Ku', caption: 'Amir and Amjad 2' },
+          { img: 'https://lh3.googleusercontent.com/d/12UHQfGCc0r1_B54PWX2woAVjWNin1uxz', caption: 'Amir and Amjad 3' },
 
           { img: 'https://lh3.googleusercontent.com/d/15baweTlkRluUHnYEPtCpscv7FL4T_nvH', caption: 'Moyser and Amjad 1' },
           { img: 'https://lh3.googleusercontent.com/d/1Zod8h7Kt4irGIujEMMV1vFkrY9qc2ZUH', caption: 'Moyser and Amjad 2' },
           { img: 'https://lh3.googleusercontent.com/d/1Z7qM9hhCnPXfyauDgKDXBrU-fI-CFX80', caption: 'Moyser and Amjad 3' },
-          
-          { img: 'https://lh3.googleusercontent.com/d/10FdxTW6kRRnVBhUsuaH5NzyTjs_aR1RX', caption: 'Amir and Amjad 1' }, 
-          { img: 'https://lh3.googleusercontent.com/d/1je9Snw7NAs_BG5mYH-IAQukLJbOfT_Ku', caption: 'Amir and Amjad 2' },
-          { img: 'https://lh3.googleusercontent.com/d/12UHQfGCc0r1_B54PWX2woAVjWNin1uxz', caption: 'Amir and Amjad 3' },
+
+          { img: 'https://lh3.googleusercontent.com/d/1jhSJFbdHrw1FZt-Ui2piAZsm4CTXV1Ah', caption: 'Wedding venue 1' },
+          { img: 'https://lh3.googleusercontent.com/d/1JdYrHKLsy03qeNJTd9E240TXM2bCO2eM', caption: 'Wedding Venue 2' },
+                   
+          { img: 'https://lh3.googleusercontent.com/d/1-MhSHzr_QXMXgn5l1_6cRjAVR944JYRp', caption: 'IMG-20260101-WA0059.jpg' },
+          { img: 'https://lh3.googleusercontent.com/d/1RaRSX20vvl2nZl4OJ4bdtcMgaI1WiYg3', caption: 'Group Photo with the married couple 1' },
+          { img: 'https://lh3.googleusercontent.com/d/1DG0BBjBs8u64ve97nhGS0OsmYb0l3Hlq', caption: 'Group Photo with the married couple 2' },
+          { img: 'https://lh3.googleusercontent.com/d/1AEM6Y6Qhnc_lzRovw0_Lp9P6Pa9jjlYF', caption: 'Group Photo with the married couple 3' },
+          { img: 'https://lh3.googleusercontent.com/d/1SKCr9zQI8YnY-WtOVXD9U-FC9g0KgPCR', caption: 'Group Photo with the married couple 4' },
+          { img: 'https://lh3.googleusercontent.com/d/1OhIKfm6BVJIr9AthlR032GCwDQnKVmC2', caption: 'Group Photo with the married couple 5' },
+          { img: 'https://lh3.googleusercontent.com/d/1phmJQuawrw6f_glqO7YoIkCe_eJo0uyC', caption: 'Group Photo with the married couple 6' },
+
       ];
 
       const smallHennaVideos = [
@@ -1533,15 +1604,41 @@
       ];
 
       const bigHennaVideos = [
-          // { id: '4cD5eF6gH7iJ8kL9mN0oP1', title: 'Big Henna Rituals', desc: 'Complete big henna ceremony with traditional rituals' },
           { id: '1mEScD2Y8GWkveoEg5qTSmi1FQpw0ibZf', title: 'حفلة الحنّاء الكبرى', desc: 'شاهدوا حفلة الحنّاء الكبرى للعريس' },
           { id: '1w7HGTtpGgv3N9Ay0NFyqtcn7UGilo0fO', title: 'حفلة الحنّاء الكبرى', desc: 'شاهدوا حفلة الحنّاء الكبرى للعريس' },
           { id: '1JBsAWCueOt4HuPbxxetoMpOO3ClUhC30', title: 'نظرة عامة على الحناء الكبيرة', desc: 'فيديو يعرض مكان الحناء الكبير' },
       ];
 
-      const weddingVideos = [
-          // { id: '7fG8hI9jK0lM1nO2pQ3rS4', title: 'Wedding Procession', desc: 'Traditional wedding procession (Zeaffa) to the wedding venue' },
-      ];
+      const weddingVideos = [ 
+        { id: '1WF6Xs5tXRTOdQP_KqaBEkf8NNq18_IXz', title: 'The Groom', desc: 'Abshir to the groom' },
+        { id: '1qAf1JbBVwsdFLLfU5MWgrcPZq4FITokq', title: 'Dancing 1', desc: 'The Couple enjoying the moment and dancing.' },
+        { id: '1lL2G1cafsj6ywCmQCT_B0CVoMqkAxXfj', title: 'Dancing 2', desc: 'The Couple enjoying the moment and dancing.' },
+
+        { id: '1QFMFMtquzHSQVwt7Nj665nHKtVSdrrTr', title: 'Cake 1', desc: 'The couple slice the cake together and then share it.' },
+        { id: '1ak3pMpj7GcgwSJttiKypJUMQrutKx3S1', title: 'Cake 2', desc: 'The couple cutting the first slice of cake.' },
+        { id: '1RGdPr8sv8r1dynykc7GkqrhNn0soZ2ef', title: 'Cake 3', desc: 'The couple cutting the first slice of cake.' },
+        { id: '1Y3eNlSMXxdNjIoViicmHjJUoDOZ9E1HP', title: 'Cake 4', desc: 'The couple sharing the first slice of cake together.' },
+
+        { id: '19yDzvhn3F_ynp0WtdXIZ60FGyN3LvYDq', title: 'Behind the Scenes', desc: 'The couple enjoying a moment behind the scenes.' },
+        { id: '1Jo2-RLv27nBTLCYsSsAtrCXvWFXADgYm', title: 'Behind the Scenes 2', desc: 'The couple taking a photo together.' },
+        { id: '1TNrZqeURCnQc1L_qKeg7O3th_5y6WqBZ', title: 'Behind the Scenes 3', desc: "Preview of the bride's dress" },
+
+        { id: '1vcKOC4uTRtcVFDEKlhS78J1FhBH4TB7h', title: 'Walkout', desc: 'The couple walking out hand-in-hand' },
+        { id: '18CqehwZZBL_PWvVL2BoH75xysm4kB4l3', title: 'Walkout 2', desc: 'The couple walking out hand-in-hand' },
+        { id: '14ioMlCJizidcay8fh2DyTs3yBL-9Jf--', title: 'Walkout 3', desc: 'The couple walking out hand-in-hand' },
+        { id: '1dYOmKht-ll6pnY6p_TjP74r78RamH7sm', title: 'Walkout 4', desc: 'The bride and groom share the spotlight togehter' },
+
+        { id: '1b8H50DAJnkltDhad5dzX2cm9nZAvmKPl', title: 'Nubian Wedding Tradition 1', desc: 'The bride and groom arrive in traditional nubian clothing and share a dance together.' },
+        { id: '1EFPKnN1pRsRno0RUD_wJ3NFgVaaY7pGc', title: 'Nubain Wedding Tradition 2', desc: 'The Bridge and Groom share a dance in traditional clothing' },
+        { id: '1P4u6R2QDZxGYPpgNRMctZBmpjrinySjD', title: 'Nubian Wedding Tradition 3', desc: 'The groom throws perfume as a gesture of good will' },
+        { id: '1CnnLyucaAhJcgyabSQBYUAx8iX68SJuN', title: 'Nubian Wedding Tradition 4', desc: 'The groom throws perfume as a gesture of good will' },
+        { id: '11f6nGkiK9bysMexB5TyieJHuiIsG2v6Z', title: 'Nubian Wedding Tradition 5', desc: 'The groom throws perfume as a gesture of good will' },
+        { id: '1Yw7diqJbwr6n_vWnKWXSz05DWMSDySpg', title: 'Nubian Wedding Tradition 6', desc: 'The groom throws perfume as a gesture of good will' },
+        { id: '15X8V0D-yxwzvEkNXqAOTJNcMyzybXVqe', title: 'Nubian Wedding Tradition 7', desc: 'The groom throws perfume as a gesture of good will' },
+        { id: '1aoCZrheMv8Sx5a7S1yvSwg9bx-eyyp2v', title: 'Nubian Wedding Tradition 8', desc: 'Huboba ordains the marriage' },
+        { id: '1TPmOXKwSVbiiSKttzk6SZRw-IhWrgKf4', title: 'Nubian Wedding Tradition 9', desc: 'The couple share coins with each other' },
+        { id: '1mcZvAYpYuA11_H_Te8u-Rs_ZpFbSynnY', title: 'Nubian Wedding Tradition 10', desc: 'The couple throw coins as a tradition of good will'},
+                ];
 
       const videoArchiveItems = [
           // { id: '1tZ7mYkHqyW8XpX9oQrZsT', title: 'Complete Wedding Documentation', desc: 'Full documentation of the entire wedding celebration' },
@@ -1566,7 +1663,15 @@
           videoItem.className = 'video-item';
           videoItem.innerHTML = `
               <div class="video-embed">
-                  <iframe src="https://drive.google.com/file/d/${video.id}/preview" width="100%" height="100%" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                  <iframe 
+                      src="https://drive.google.com/file/d/${video.id}/preview" 
+                      width="100%" 
+                      height="100%" 
+                      frameborder="0" 
+                      allow="fullscreen" 
+                      allowfullscreen 
+                      loading="lazy">
+                  </iframe>
               </div>
               <div class="video-info">
                   <h3 class="video-title">${video.title}</h3>
@@ -1768,26 +1873,86 @@
               bigHennaVideos.forEach(v => bigHennaVideosGrid.appendChild(createVideoItem(v)));
           }
 
-          // 5. Wedding Grid
+          // 5. Wedding Grid with "Show More" logic
           const weddingGrid = document.getElementById('wedding-photo-grid');
+          const showMoreBtn = document.getElementById('wedding-show-more-btn');
+          const showMoreContainer = document.getElementById('wedding-show-more-container');
+          const INITIAL_ITEMS = 10;
+
           if (weddingGrid) {
               weddingGrid.innerHTML = '';
               weddingItems.forEach((item, index) => {
                   const imgIdx = hennaSmallItems.length + hennaBigItems.length + index;
                   const div = document.createElement('div');
-                  div.className = 'wedding-item';
-                  div.innerHTML = `<img src="${item.img}"><div class="wedding-caption">${item.caption}</div>`;
+                  
+                  // Add "hidden" class if index is greater than initial limit
+                  div.className = `wedding-item ${index >= INITIAL_ITEMS ? 'hidden' : ''}`;
+                  
+                  div.innerHTML = `<img src="${item.img}" loading="lazy"><div class="wedding-caption">${item.caption}</div>`;
                   div.onclick = () => window.openLightbox(imgIdx);
                   weddingGrid.appendChild(div);
               });
+
+              // Hide button if we have fewer than 20 items
+              if (weddingItems.length <= INITIAL_ITEMS) {
+                  showMoreContainer.style.display = 'none';
+              }
+
+              // Button click logic
+              showMoreBtn.onclick = function() {
+                  const hiddenItems = weddingGrid.querySelectorAll('.wedding-item.hidden');
+                  // Reveal the next 20 items
+                  for (let i = 0; i < 10 && i < hiddenItems.length; i++) {
+                      hiddenItems[i].classList.remove('hidden');
+                  }
+                  
+                  // If no more hidden items, hide the button
+                  if (weddingGrid.querySelectorAll('.wedding-item.hidden').length === 0) {
+                      showMoreContainer.style.display = 'none';
+                  }
+              };
           }
 
           // 6. Wedding Videos
+          // 6. Wedding Videos with "Show More" logic
           const weddingVideosGrid = document.getElementById('wedding-videos-grid');
+          const videoShowMoreBtn = document.getElementById('video-show-more-btn');
+          const videoShowMoreContainer = document.getElementById('video-show-more-container');
+          const INITIAL_VIDEOS = 6; // Shows 6 videos first (2 rows of 3 on desktop)
+
           if (weddingVideosGrid) {
               weddingVideosGrid.innerHTML = '';
-              weddingVideos.forEach(v => weddingVideosGrid.appendChild(createVideoItem(v)));
-          }
+              weddingVideos.forEach((video, index) => {
+                  const videoItem = createVideoItem(video);
+                  
+                  // Hide videos beyond the initial limit
+                  if (index >= INITIAL_VIDEOS) {
+                      videoItem.classList.add('hidden');
+                  }
+                  
+                  weddingVideosGrid.appendChild(videoItem);
+              });
+
+              // Hide button if there are fewer videos than the limit
+              if (weddingVideos.length <= INITIAL_VIDEOS) {
+                  videoShowMoreContainer.style.display = 'none';
+              }
+
+              // Video Button click logic
+              videoShowMoreBtn.onclick = function() {
+                  const hiddenVideos = weddingVideosGrid.querySelectorAll('.video-item.hidden');
+                  // Reveal the next 6 videos
+              for (let i = 0; i < 6 && i < hiddenVideos.length; i++) {
+                  hiddenVideos[i].classList.remove('hidden');
+              }
+              
+              // Hide button when all videos are shown
+              if (weddingVideosGrid.querySelectorAll('.video-item.hidden').length === 0) {
+                  videoShowMoreContainer.style.display = 'none';
+              }
+          };
+        }
+          
 
           // 7. Video Archive
           const videoArchiveGrid = document.getElementById('video-archive-grid');
