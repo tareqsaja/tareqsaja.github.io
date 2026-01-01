@@ -1761,6 +1761,13 @@
       ];
 
       const weddingVideos = [ 
+        { 
+          id: 'alC1C4R7878', // This is the ID from your YouTube link
+          title: 'فيديو الزفاف الرئيسي', 
+          desc: 'البث المباشر الكامل لحفل الزفاف',
+          isYouTube: true // Add this flag to tell the script it's a YouTube video
+        },
+
         { id: '1WF6Xs5tXRTOdQP_KqaBEkf8NNq18_IXz', title: 'العريس', desc: 'أبشير للعريس' },
         { id: '1qAf1JbBVwsdFLLfU5MWgrcPZq4FITokq', title: 'الرقص 1', desc: 'العروس والعريس يستمتعان باللحظة ويرقصان.' },
         { id: '1lL2G1cafsj6ywCmQCT_B0CVoMqkAxXfj', title: 'الرقص 2', desc: 'العروس والعريس يستمتعان باللحظة ويرقصان.' },
@@ -1813,22 +1820,38 @@
       function createVideoItem(video) {
           const videoItem = document.createElement('div');
           videoItem.className = 'video-item';
+          
+          // Determine the URL based on whether it's YouTube or Google Drive
+          const videoUrl = video.isYouTube 
+              ? `https://www.youtube.com/embed/${video.id}`
+              : `https://drive.google.com/file/d/${video.id}/preview`;
+
           videoItem.innerHTML = `
+          <div class="video-embed-container">
               <div class="video-embed">
                   <iframe 
-                      src="https://drive.google.com/file/d/${video.id}/preview" 
+                      src="${videoUrl}" 
                       width="100%" 
                       height="100%" 
                       frameborder="0" 
-                      allow="fullscreen" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                      referrerpolicy="strict-origin-when-cross-origin"
                       allowfullscreen 
                       loading="lazy">
                   </iframe>
               </div>
-              <div class="video-info">
-                  <h3 class="video-title">${video.title}</h3>
-                  <p class="video-desc">${video.desc}</p>
-              </div>`;
+              <button class="video-expand-btn" title="تكبير الفيديو">
+                  <i class="fas fa-expand"></i>
+              </button>
+          </div>
+          <div class="video-info">
+              <h3 class="video-title">${video.title}</h3>
+              <p class="video-desc">${video.desc}</p>
+          </div>`;
+          
+          const expandBtn = videoItem.querySelector('.video-expand-btn');
+          expandBtn.addEventListener('click', () => expandVideo(video));
+          
           return videoItem;
       }
 
@@ -2343,52 +2366,22 @@
       // VIDEO EXPAND FUNCTIONS
       // ============================================
 
-      function createVideoItem(video) {
-          const videoItem = document.createElement('div');
-          videoItem.className = 'video-item';
-          videoItem.innerHTML = `
-              <div class="video-embed-container">
-                  <div class="video-embed">
-                      <iframe 
-                          src="https://drive.google.com/file/d/${video.id}/preview" 
-                          width="100%" 
-                          height="100%" 
-                          frameborder="0" 
-                          allow="fullscreen" 
-                          allowfullscreen 
-                          loading="lazy">
-                      </iframe>
-                  </div>
-                  <button class="video-expand-btn" title="تكبير الفيديو">
-                      <i class="fas fa-expand"></i>
-                  </button>
-              </div>
-              <div class="video-info">
-                  <h3 class="video-title">${video.title}</h3>
-                  <p class="video-desc">${video.desc}</p>
-              </div>`;
-          
-          // Add expand functionality
-          const expandBtn = videoItem.querySelector('.video-expand-btn');
-          expandBtn.addEventListener('click', () => expandVideo(video));
-          
-          return videoItem;
-      }
-
       function expandVideo(video) {
           const modal = document.getElementById('video-modal');
           const iframe = document.getElementById('video-modal-iframe');
           const title = document.getElementById('video-modal-title');
           const desc = document.getElementById('video-modal-desc');
           
-          iframe.src = `https://drive.google.com/file/d/${video.id}/preview`;
+          // Check for YouTube vs Drive here too
+          iframe.src = video.isYouTube 
+              ? `https://www.youtube.com/embed/${video.id}`
+              : `https://drive.google.com/file/d/${video.id}/preview`;
+              
           title.textContent = video.title;
           desc.textContent = video.desc;
           
           modal.classList.add('active');
           document.body.style.overflow = 'hidden';
-          
-          // Stop carousel auto-advance when video modal is open
           stopCarouselAutoAdvance();
       }
 
