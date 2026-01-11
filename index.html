@@ -1914,12 +1914,15 @@
       // ============================================
 
             // 8. نجمة الحفل (Star of the Show) Photos
+      // 8. نجمة الحفل (Star of the Show) Photos
       const starPhotosGrid = document.getElementById('star-photos-grid');
       if (starPhotosGrid && starOfTheShowPhotos.length > 0) {
           starPhotosGrid.innerHTML = '';
+          // Calculate starting index for star photos
+          const starStartIndex = hennaSmallItems.length + hennaBigItems.length + weddingItems.length;
+          
           starOfTheShowPhotos.forEach((item, index) => {
-              const imgIdx = allImages.length;
-              allImages.push(item); // Add to lightbox images
+              const imgIdx = starStartIndex + index; // Use the calculated index
               
               const div = document.createElement('div');
               div.className = 'wedding-item';
@@ -2124,7 +2127,7 @@
 
       function initializeSiteContent() {
           // Force reset all images array just in case
-          allImages = [...hennaSmallItems, ...hennaBigItems, ...weddingItems];
+          allImages = [...hennaSmallItems, ...hennaBigItems, ...weddingItems, ...starOfTheShowPhotos, ...miscellaneousPhotos];
 
           // 1. Small Henna Grid
           const hennaGrid = document.getElementById('small-henna-grid');
@@ -2293,9 +2296,11 @@
           const miscellaneousPhotosGrid = document.getElementById('miscellaneous-photos-grid');
           if (miscellaneousPhotosGrid && miscellaneousPhotos.length > 0) {
               miscellaneousPhotosGrid.innerHTML = '';
+              // Calculate starting index for miscellaneous photos (after star photos)
+              const miscStartIndex = hennaSmallItems.length + hennaBigItems.length + weddingItems.length + starOfTheShowPhotos.length;
+              
               miscellaneousPhotos.forEach((item, index) => {
-                  const imgIdx = allImages.length;
-                  allImages.push(item); // Add to lightbox images
+                  const imgIdx = miscStartIndex + index; // Use the calculated index
                   
                   const div = document.createElement('div');
                   div.className = 'wedding-item';
