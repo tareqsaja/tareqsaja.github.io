@@ -1504,7 +1504,8 @@
                   <li><a href="#henna-small">الحنة الصغيرة</a></li>
                   <li><a href="#henna-big">الحنة الكبيرة</a></li>
                   <li><a href="#wedding">صور الزفاف</a></li>
-                  <li><a href="#videos">أرشيف الفيديو</a></li>
+                  <li><a href="#star-of-show">نجمة الحفل</a></li>
+                  <li><a href="#miscellaneous">متنوعة</a></li>
                   <li><a href="#upload">رفع الملفات</a></li>
                 </ul>
             </div>
@@ -1596,17 +1597,40 @@
                 <div class="video-grid" id="small-henna-videos-grid">
                     <!-- Small henna videos will be added by JavaScript -->
                 </div>
+                <div class="show-more-container" id="small-henna-videos-show-more-container">
+                    <button class="show-more-btn" id="small-henna-videos-show-more-btn">
+                        عرض المزيد من الفيديوهات <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
 
             </section>
 
             
-            <!-- Video Archive -->
-            <section id="videos" class="section">
-                <h2 class="section-title">الأرشيف المرئي الكامل</h2>
-                <p class="section-intro">جميع فيديوهات الزفاف منظمة حسب الفئة.</p>
+            <!-- نجمة الحفل (Star of the Show) -->
+            <section id="star-of-show" class="section">
+                <h2 class="section-title">نجمة الحفل</h2>
+                <p class="section-intro">الشاب الذي أضاء الحفل بحضوره ⭐</p>
                 
-                <div class="video-grid" id="video-archive-grid">
-                    <!-- Video items will be added by JavaScript -->
+                <!-- Star Photos -->
+                <h3 class="subsection-title">صور مميزة</h3>
+                <div class="wedding-grid" id="star-photos-grid">
+                    <!-- Star photos will be added by JavaScript -->
+                </div>
+                
+                <!-- Star Videos -->
+                <h3 class="subsection-title">فيديوهات مميزة</h3>
+                <div class="video-grid" id="star-videos-grid">
+                    <!-- Star videos will be added by JavaScript -->
+                </div>
+            </section>
+
+            <!-- متنوع (Miscellaneous) -->
+            <section id="miscellaneous" class="section">
+                <h2 class="section-title">متنوع</h2>
+                <p class="section-intro">صور متنوعة 📸</p>
+                
+                <div class="wedding-grid" id="miscellaneous-photos-grid">
+                    <!-- Miscellaneous photos will be added by JavaScript -->
                 </div>
             </section>
             
@@ -1634,11 +1658,11 @@
                   <div class="footer-section">
                       <h3 class="footer-title">روابط سريعة</h3>
                       <ul class="footer-links">
-                          <li><a href="#home">الرئيسية</a></li>
                           <li><a href="#henna-small">الحنة الصغيرة</a></li>
                           <li><a href="#henna-big">الحنة الكبيرة</a></li>
                           <li><a href="#wedding">صور الزفاف</a></li>
-                          <li><a href="#videos">أرشيف الفيديو</a></li>
+                          <li><a href="#videos">نجمة الحفل</a></li>
+                          <li><a href="#miscellaneous">مقاطع متنوعة</a></li>
                           <li><a href="#upload">رفع الملفات</a></li>
                       </ul>
                   </div>
@@ -1663,7 +1687,14 @@
 
       const hennaSmallItems = [
           { img: 'https://lh3.googleusercontent.com/d/1NUnSR6nY245EOZytYC5bOHaUemC4Q5tF', caption: 'كعكة الحنّاء الصغيرة' },
-          { img: 'https://lh3.googleusercontent.com/d/1vek5wVtwRjdQWfVtIY1GImsCB7semV_K', caption: 'العريس وأصدقاؤه المقرّبون' }
+          { img: 'https://lh3.googleusercontent.com/d/1vek5wVtwRjdQWfVtIY1GImsCB7semV_K', caption: 'العريس وأصدقاؤه المقرّبون' },
+          { img: 'https://lh3.googleusercontent.com/d/1q7eQm_ngc_u0BypxPFVLEY5tqSjJuFRX', caption: 'نان نوسة، تغريد، عبورة، ننوية' },
+          { img: 'https://lh3.googleusercontent.com/d/1kBvMJMaFgpM_qHvmi9SfMm4letRkPOKy', caption: 'أمير يستمتع بالحنّاء' },
+          { img: 'https://lh3.googleusercontent.com/d/1CwapnWWLkijhuY3xdSOZ3BdXX8mnXbyy', caption: 'شعبان، وبقية' },
+          { img: 'https://lh3.googleusercontent.com/d/16_w7GBfalZXin1Jf8X4b3pUjbbtK83XD', caption: 'حبوبة، نان نوسة، وعلي' },
+          { img: 'https://lh3.googleusercontent.com/d/1__HqKzMNjC3YpTMKuu6bfdCpdY9i8fUX', caption: 'مويسر يستمتع بالحنّاء' },
+          { img: 'https://lh3.googleusercontent.com/d/1ogpvxcRA4S7WchclIW8N5lvZ5aL1CzAY', caption: 'العجوز والشباب' },
+          { img: 'https://lh3.googleusercontent.com/d/1k5DNruaP3OAYR32Va2LlMoXY78OxHkvc', caption: 'أمير يستمتع بالحنّاء' },
       ];
 
       const hennaBigItems = [
@@ -1737,6 +1768,11 @@
         { img: 'https://lh3.googleusercontent.com/d/1Zod8h7Kt4irGIujEMMV1vFkrY9qc2ZUH', caption: 'مويسر وأمجد 2' },
         { img: 'https://lh3.googleusercontent.com/d/1Z7qM9hhCnPXfyauDgKDXBrU-fI-CFX80', caption: 'مويسر وأمجد 3' },
 
+        { img: 'https://lh3.googleusercontent.com/d/1yoqGQ-0WT2z61IMFtPs5t29Qv6DXRST2', caption: 'العجوز، نان نوسة، وحبوبة' },
+        { img: 'https://lh3.googleusercontent.com/d/1GfWFCCkBrXZ8E_zZtB_YDvCp6E-GmLaw', caption: 'الأصدقاء المرافقون للعريس' },
+        { img: 'https://lh3.googleusercontent.com/d/1SxFW5WLwfaiVNTMRfgc7BpC0MquhNG02', caption: 'أمير وأنس' },
+        { img: 'https://lh3.googleusercontent.com/d/1YowH0pp3ajXBIMcV9vqK14y0tLYWcP54', caption: 'أمير وأنس وصديق أنس' },
+
         { img: 'https://lh3.googleusercontent.com/d/1jhSJFbdHrw1FZt-Ui2piAZsm4CTXV1Ah', caption: 'مكان الزفاف 1' },
         { img: 'https://lh3.googleusercontent.com/d/1JdYrHKLsy03qeNJTd9E240TXM2bCO2eM', caption: 'مكان الزفاف 2' },
                       
@@ -1746,12 +1782,45 @@
         { img: 'https://lh3.googleusercontent.com/d/1AEM6Y6Qhnc_lzRovw0_Lp9P6Pa9jjlYF', caption: 'صورة جماعية مع الزوجين 4' },
         { img: 'https://lh3.googleusercontent.com/d/1SKCr9zQI8YnY-WtOVXD9U-FC9g0KgPCR', caption: 'صورة جماعية مع الزوجين 5' },
         { img: 'https://lh3.googleusercontent.com/d/1OhIKfm6BVJIr9AthlR032GCwDQnKVmC2', caption: 'صورة جماعية مع الزوجين 6' },
-        { img: 'https://lh3.googleusercontent.com/d/1phmJQuawrw6f_glqO7YoIkCe_eJo0uyC', caption: 'صورة جماعية مع الزوجين 7' },
+        { img: 'https://lh3.googleusercontent.com/d/1phmJQuawrw6f_glqO7YoIkCe_eJo0uyC', caption: 'صورة جماعية مع الزوجين 7' },                    
       ];
 
       const smallHennaVideos = [
           { id: '1rKXEWd5TMwIHnc4Q88am5lT7iYn0RZ-B', title: 'تحضيرات الحنّاء الصغيرة', desc: 'التحضيرات وبداية مراسم الحنّاء الصغيرة' },
           { id: '1TT653xreu1OVc1N2C40xih0wchDvwZ9Z' , title: 'تحضيرات الحنّاء الصغيرة', desc: 'التحضيرات وبداية مراسم الحنّاء الصغيرة' },
+          { id: '1x6eUOg7WZQsNplJJ-q4SzrONY1eFhQ3y', title: 'VID-20260103-WA0027.mp4', desc: 'description' },
+          { id: '1T-nLDfBW9aDN-667jxQwnHxx2YZHaykB', title: 'VID-20260103-WA0030.mp4', desc: 'description' },
+          { id: '1Gy1W1PmxsNsZlQfuY3wz4eBgfy_DG_JV', title: 'VID-20260103-WA0041.mp4', desc: 'description' },
+          { id: '1bMniza8eWmekhsA24VJkKKKmQ0nxHvqe', title: 'VID-20260103-WA0023.mp4', desc: 'description' },
+          { id: '1BVws6lLo17-Zy5p__JhL48jbIo0lWbgx', title: 'VID-20260103-WA0011.mp4', desc: 'description' },
+          { id: '1fKTYtjSCSnmFQECVFtQO65ZgIV2Cfv8M', title: 'VID-20260103-WA0002.mp4', desc: 'description' },
+          { id: '1TaUyKQgEmZL8MjTfO8I5QiXajZM8Ww6k', title: 'VID-20260103-WA0008.mp4', desc: 'description' },
+          { id: '1cJWwLs5EUDSvvvHyPboCWpl8CNHotKPU', title: 'VID-20260103-WA0020.mp4', desc: 'description' },
+          { id: '11lgcLwuixNt5lqBU8oGlcScGdfOhzIqp', title: 'VID-20260103-WA0007.mp4', desc: 'description' },
+          { id: '1Gm6XGpE1Di0Le0YuVuYGbjpWmvATULAQ', title: 'VID-20260103-WA0025.mp4', desc: 'description' },
+          { id: '1y5manPiP7mzi5FikM-BFquk6rjKeUTwN', title: 'VID-20260103-WA0012.mp4', desc: 'description' },
+          { id: '1CnAEfFjXtJGvL2OQ0giBicUyOnhXipg4', title: 'VID-20260103-WA0021.mp4', desc: 'description' },
+          { id: '11SOb5A-kwLy8xzKeB6zeZCKvAESLCkw4', title: 'VID-20260103-WA0017.mp4', desc: 'description' },
+          { id: '1GlMlbzor_e6kHaA-8XtvJKsqYguuKpbP', title: 'VID-20260103-WA0013.mp4', desc: 'description' },
+          { id: '1Y1qijtlazpRVkOAV6VN0_Bw3E1aPoqWy', title: 'VID-20260103-WA0036.mp4', desc: 'description' },
+          { id: '1V1T-AN7yQiqkAMZWOLXZkVhXN3o5Nr9Q', title: 'VID-20260103-WA0028.mp4', desc: 'description' },
+          { id: '1Ozxcrc-YCnzU2WJgpZl-yK-RqIpo1fbC', title: 'VID-20260103-WA0004.mp4', desc: 'description' },
+          { id: '1OrJC80x7aVUZ1kYvlHa2sCAwW9H6VIqm', title: 'VID-20260103-WA0016.mp4', desc: 'description' },
+          { id: '1rFRjC0W9GxaSImnxm-Zg5GyxYOIK5pVF', title: 'VID-20260103-WA0010.mp4', desc: 'description' },
+          { id: '1kfTojAn1BwrEms9UMqGHal0kwXhPjphw', title: 'VID-20260103-WA0003.mp4', desc: 'description' },
+          { id: '10mbWBXDRWj3eqCCEYJs16DEQ6jHId12s', title: 'VID-20260103-WA0022.mp4', desc: 'description' },
+          { id: '1fYAfKW0g0f1YM2k-fdHCJ3DkDf3aGeYl', title: 'VID-20260103-WA0006.mp4', desc: 'description' },
+          { id: '1uGMRUlIkBa-w80SPcebL0VkY8DThtohK', title: 'VID-20260103-WA0032.mp4', desc: 'description' },
+          { id: '16mXZIXykW9p_hh7kpNqTOw4w1HXzxXIM', title: 'VID-20260103-WA0029.mp4', desc: 'description' },
+          { id: '1Vk2WNoim-qeOVJB9L0G5YDWwpS-rJUJP', title: 'VID-20260103-WA0019.mp4', desc: 'description' },
+          { id: '1ZV4V0uB4TKlSpZ2A0dq8s290AAEcNsX4', title: 'VID-20260103-WA0024.mp4', desc: 'description' },
+          { id: '1zdmyLaAEX3PYp1PcICZiD6Va_OVlVlG2', title: 'VID-20260103-WA0018.mp4', desc: 'description' },
+          { id: '1rnYA3p_pXJWxuQLIYox8mmfRa2FG3OlA', title: 'VID-20260103-WA0005.mp4', desc: 'description' },
+          { id: '1xbJbe4MqpN_3Uv9KwvY7d8KwN-o0okwk', title: 'VID-20260103-WA0015.mp4', desc: 'description' },
+          { id: '1WusLm_l1kknCA4PCLKpovBxk3kRZt0E7', title: 'VID-20260103-WA0026.mp4', desc: 'description' },
+          { id: '1V8BUlG6uN6B3mHR5S9QWs4cP5CxntN1I', title: 'VID-20260103-WA0009.mp4', desc: 'description' },
+          { id: '1_X_8CppZx22FjOODiFAcMurjMG9eLYdE', title: 'VID-20260103-WA0031.mp4', desc: 'description' },
+          { id: '1LAroTcNfj8ObOx7PU6PlY74L16uzsLN0', title: 'VID-20260103-WA0014.mp4', desc: 'description' }
       ];
 
       const bigHennaVideos = [
@@ -1797,11 +1866,45 @@
         { id: '1TPmOXKwSVbiiSKttzk6SZRw-IhWrgKf4', title: 'تقاليد الزفاف النوبي 9', desc: 'العروس والعريس يتبادلان النقود' },
         { id: '1mcZvAYpYuA11_H_Te8u-Rs_ZpFbSynnY', title: 'تقاليد الزفاف النوبي 10', desc: 'العروس والعريس يلقون النقود كعرف ودّي' },
 
-        ];
-
-      const videoArchiveItems = [
-          // { id: '1tZ7mYkHqyW8XpX9oQrZsT', title: 'Complete Wedding Documentation', desc: 'Full documentation of the entire wedding celebration' },
       ];
+
+      
+      const miscellaneousPhotos = [
+          { img: 'https://lh3.googleusercontent.com/d/1hFK3_6EelRB5HVUcBrWuH9SsYWaKJHEN', caption: 'IMG_20251226_130059_428.jpg' },
+          { img: 'https://lh3.googleusercontent.com/d/1zTLMw3HP82LC-wXnJljyIiiXigG5WGeQ', caption: 'IMG_20251226_144535_305.jpg' },
+          { img: 'https://lh3.googleusercontent.com/d/1EvwFIcYbxE12oGYeBuMnGLVdmctMzFBc', caption: 'IMG_20251226_125825_651.jpg' },
+          { img: 'https://lh3.googleusercontent.com/d/1PGiZkQQQXK3_O5TukrIWWfxy_W8IgDZj', caption: 'IMG_20251228_172945_441.jpg' },
+          { img: 'https://lh3.googleusercontent.com/d/1RLecm8aZl_QaOSlXJ353i0MxBwmHWlc2', caption: 'IMG_20251228_173229_874.jpg' },
+          { img: 'https://lh3.googleusercontent.com/d/1F78_enAKpoqLPzBURYXdxQwnvwh5p4Z2', caption: 'IMG_20251228_173331_788.jpg' },
+          { img: 'https://lh3.googleusercontent.com/d/1Xb82nnq8mJPDNeLVoMjfbjFqni1-jmRp', caption: 'IMG_20251226_130114_327.jpg' }
+      ];
+
+
+      const starOfTheShowPhotos = [
+          { img: 'https://lh3.googleusercontent.com/d/1XE-croU1UTcYcFXbkKz-tsD0i6KMcpgl', caption: 'شعبان ١' },
+          { img: 'https://lh3.googleusercontent.com/d/1xF8pWQgLXpgrWojGe1UHfw_xWAcmZEKx', caption: 'شعبان ٢' },
+          { img: 'https://lh3.googleusercontent.com/d/1rvr2lycKIK_MJ-H0gYvC-Dvr5rcY7qOj', caption: 'شعبان ٣' },
+          { img: 'https://lh3.googleusercontent.com/d/1IFLgG4pqAT8GQpDR41B5MVAflEKI8RjY', caption: 'شعبان ٤' },
+          { img: 'https://lh3.googleusercontent.com/d/1U-3whFBLekvUX_BHeTwV-S7FficJep3B', caption: 'شعبان ٥' },
+          { img: 'https://lh3.googleusercontent.com/d/1qr54OZngs44a1ogeHe3lcpjpDdvZd5T7', caption: 'شعبان ٦' },
+          { img: 'https://lh3.googleusercontent.com/d/1ywu8vdbcL8JAyLQ2CWl8_KAM_Tn3qcQw', caption: 'شعبان ٧' },
+          { img: 'https://lh3.googleusercontent.com/d/1Z43gBqICnNzJn1uyYBK5mVglq6u4C-1d', caption: 'شعبان ٨' },
+          { img: 'https://lh3.googleusercontent.com/d/15KhkAUweEyaSzsehigxW4z7VuqHaD8Lo', caption: 'شعبان ٩' },
+          { img: 'https://lh3.googleusercontent.com/d/1yQd4M-6mORbH5xPWTQwuTThPlUssvYYT', caption: 'شعبان ١٠' },
+          { img: 'https://lh3.googleusercontent.com/d/1ixM61qUO6TLToZEW186AMQk170npeLar', caption: 'شعبان ١١' },
+          { img: 'https://lh3.googleusercontent.com/d/1PtxqjiUguN80tbZ-SqN5KzOrj1cVcebZ', caption: 'شعبان ١٢' },
+          { img: 'https://lh3.googleusercontent.com/d/1eB8XARBApGClN6RjfJrPFPrlemgyIR2e', caption: 'شعبان ١٣' },
+          { img: 'https://lh3.googleusercontent.com/d/1gWD7OuDbLO5i03gyRnav27kWC6WkWKf1', caption: 'شعبان ١٤' },
+          { img: 'https://lh3.googleusercontent.com/d/1csl62Hhur6b1Ob9b2dLRgV65ES2T98Yy', caption: 'شعبان ١٥' },
+          { img: 'https://lh3.googleusercontent.com/d/11dwSPsXyfyPH5qpsoLCM6un8i7sgQSBT', caption: 'شعبان ١٦' },
+          { img: 'https://lh3.googleusercontent.com/d/1r0NBOIUTNmhKqZFISiuuuAPBcMQWuUM7', caption: 'شعبان ١٧' }
+      ];
+
+      const starOfTheShowVideos = [
+          { id: '1n2dDqgnzSjaGlFz1HZVJ55UMMoTDZOQG', title: 'VID_20260103_104037.mp4', desc: 'شعبان يرقص' }
+      ];
+
+
 
       // Combine all for Lightbox mapping
       allImages = [...hennaSmallItems, ...hennaBigItems, ...weddingItems];
@@ -1809,6 +1912,29 @@
       // ============================================
       // 2. CORE UTILITY FUNCTIONS
       // ============================================
+
+            // 8. نجمة الحفل (Star of the Show) Photos
+      const starPhotosGrid = document.getElementById('star-photos-grid');
+      if (starPhotosGrid && starOfTheShowPhotos.length > 0) {
+          starPhotosGrid.innerHTML = '';
+          starOfTheShowPhotos.forEach((item, index) => {
+              const imgIdx = allImages.length;
+              allImages.push(item); // Add to lightbox images
+              
+              const div = document.createElement('div');
+              div.className = 'wedding-item';
+              div.innerHTML = `<img src="${item.img}" loading="lazy"><div class="wedding-caption">${item.caption}</div>`;
+              div.onclick = () => window.openLightbox(imgIdx);
+              starPhotosGrid.appendChild(div);
+          });
+      }
+
+      // 9. نجمة الحفل (Star of the Show) Videos
+      const starVideosGrid = document.getElementById('star-videos-grid');
+      if (starVideosGrid && starOfTheShowVideos.length > 0) {
+          starVideosGrid.innerHTML = '';
+          starOfTheShowVideos.forEach(v => starVideosGrid.appendChild(createVideoItem(v)));
+      }
 
       async function sha256(message) {
           const msgBuffer = new TextEncoder().encode(message);
@@ -2017,9 +2143,41 @@
 
           // 2. Small Henna Videos
           const smallHennaVideosGrid = document.getElementById('small-henna-videos-grid');
+          const smallHennaShowMoreBtn = document.getElementById('small-henna-videos-show-more-btn');
+          const smallHennaShowMoreContainer = document.getElementById('small-henna-videos-show-more-container');
+          const INITIAL_SMALL_HENNA_VIDEOS = 6; // Shows 6 videos first
+
           if (smallHennaVideosGrid) {
               smallHennaVideosGrid.innerHTML = '';
-              smallHennaVideos.forEach(v => smallHennaVideosGrid.appendChild(createVideoItem(v)));
+              smallHennaVideos.forEach((v, index) => {
+                  const videoItem = createVideoItem(v);
+                  
+                  // Hide videos beyond the initial limit
+                  if (index >= INITIAL_SMALL_HENNA_VIDEOS) {
+                      videoItem.classList.add('hidden');
+                  }
+                  
+                  smallHennaVideosGrid.appendChild(videoItem);
+              });
+
+              // Hide button if there are fewer videos than the limit
+              if (smallHennaVideos.length <= INITIAL_SMALL_HENNA_VIDEOS) {
+                  smallHennaShowMoreContainer.style.display = 'none';
+              }
+
+              // Button click logic
+              smallHennaShowMoreBtn.onclick = function() {
+                  const hiddenVideos = smallHennaVideosGrid.querySelectorAll('.video-item.hidden');
+                  // Reveal the next 6 videos
+                  for (let i = 0; i < 6 && i < hiddenVideos.length; i++) {
+                      hiddenVideos[i].classList.remove('hidden');
+                  }
+                  
+                  // Hide button when all videos are shown
+                  if (smallHennaVideosGrid.querySelectorAll('.video-item.hidden').length === 0) {
+                      smallHennaShowMoreContainer.style.display = 'none';
+                  }
+              };
           }
 
           // 3. Big Henna Carousel
@@ -2131,11 +2289,20 @@
         }
           
 
-          // 7. Video Archive
-          const videoArchiveGrid = document.getElementById('video-archive-grid');
-          if (videoArchiveGrid) {
-              videoArchiveGrid.innerHTML = '';
-              videoArchiveItems.forEach(v => videoArchiveGrid.appendChild(createVideoItem(v)));
+          // 10. متنوع (Miscellaneous) Photos
+          const miscellaneousPhotosGrid = document.getElementById('miscellaneous-photos-grid');
+          if (miscellaneousPhotosGrid && miscellaneousPhotos.length > 0) {
+              miscellaneousPhotosGrid.innerHTML = '';
+              miscellaneousPhotos.forEach((item, index) => {
+                  const imgIdx = allImages.length;
+                  allImages.push(item); // Add to lightbox images
+                  
+                  const div = document.createElement('div');
+                  div.className = 'wedding-item';
+                  div.innerHTML = `<img src="${item.img}" loading="lazy"><div class="wedding-caption">${item.caption}</div>`;
+                  div.onclick = () => window.openLightbox(imgIdx);
+                  miscellaneousPhotosGrid.appendChild(div);
+              });
           }
 
           // Initialize UI Controls
