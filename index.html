@@ -31,6 +31,7 @@
         }
         
         body {
+            padding-top: 60px;
             background-color: var(--sand-beige);
             color: var(--dark-text);
             line-height: 1.6;
@@ -51,11 +52,18 @@
             margin: 0 auto;
             padding: 0 15px;
         }
+
+        
+        
         
         /* MOBILE-FIRST ENHANCEMENTS */
         @media (max-width: 768px) {
             html {
                 font-size: 15px;
+            }
+            
+            body {
+              padding-top: 70px;
             }
             
             .container {
@@ -66,6 +74,97 @@
         @media (max-width: 480px) {
             html {
                 font-size: 14px;
+            }
+        }
+
+
+        .drive-limit-banner {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%; 
+          background: linear-gradient(to right, #ff0000, #ff6600);
+          color: white;
+          padding: 12px 20px;
+          z-index: 9999;
+          text-align: center;
+          border-bottom: 3px solid var(--sudan-gold);
+          font-family: 'Scheherazade New', serif;
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .banner-message {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .banner-icon {
+            color: var(--sudan-gold);
+            font-size: 1.2rem;
+        }
+        
+        .banner-text {
+            text-align: right;
+            direction: rtl;
+        }
+        
+        .highlight {
+            background-color: var(--sudan-gold);
+            color: black;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin: 0 5px;
+            display: inline-block;
+        }
+        
+        .banner-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            flex-shrink: 0;
+        }
+        
+        .banner-close:hover {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .banner-content {
+                padding: 0 10px;
+            }
+            
+            .banner-message {
+                font-size: 0.85rem;
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
+            
+            .banner-icon {
+                font-size: 1rem;
+            }
+            
+            .drive-limit-banner {
+                padding: 10px 15px;
             }
         }
 
@@ -1454,6 +1553,26 @@
         <i class="fas fa-check-circle"></i>
         <span id="toast-message"></span>
     </div>
+
+    <div class="drive-limit-banner" id="drive-limit-banner">
+        <div class="banner-content">
+            <div class="banner-message">
+                <span class="banner-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </span>
+                <span class="banner-text">
+                    <strong>تنبيه مهم:</strong> إذا ظهرت رسالة "Sign into your Google Account"، انقر على أيقونة 
+                    <span class="highlight">
+                        <i class="fas fa-external-link-alt"></i>
+                    </span> 
+                    في مشغل الفيديو لمشاهدته
+                </span>
+            </div>
+            <button class="banner-close" id="close-banner-btn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
     
     <!-- Lightbox Modal -->
     <div class="lightbox" id="lightbox">
@@ -1744,6 +1863,9 @@
         { img: 'https://lh3.googleusercontent.com/d/1q5oS_IGqYWXRgI9QKA7Mslpmm9vnYziv', caption: 'العروس والعريس 4' },
         { img: 'https://lh3.googleusercontent.com/d/14Odp1zRmJ9x5oQUaH0mOlU73lcNKwWhH', caption: 'العروس والعريس 5' },
 
+
+
+        // bridge and groom
         { img: 'https://lh3.googleusercontent.com/d/1G0V9mc3L_7WcMGzkM-Tu0H_YfKr3RixZ', caption: 'العروس 1' },
         { img: 'https://lh3.googleusercontent.com/d/1RC-c6HKxTtIetJFhUTUcSJzV55K54U4r', caption: 'العروس 2' },
         { img: 'https://lh3.googleusercontent.com/d/1FzoM9GbAsk9ujTLJ3dyK6Q2J8mx4cMSE', caption: 'العروس 3' },
@@ -1757,6 +1879,13 @@
         { img: 'https://lh3.googleusercontent.com/d/1aED1pBZA3N4__bQVj94jaYSHlu1BYA9u', caption: 'العروس والعريس 8' },
         { img: 'https://lh3.googleusercontent.com/d/1wczGliI9Qv8QEkRW-MkLnzl5NeDzeKSZ', caption: 'العروس والعريس 9' },
         { img: 'https://lh3.googleusercontent.com/d/1RCNj7pJksgLOmtrvID6JV0jP_vozkTqu', caption: 'العروس والعريس 10' },
+        { img: 'https://lh3.googleusercontent.com/d/1zviSUv8itYzA-DYUWEiOjNYO2SjeieWn', caption: 'العروس والعريس 11' },
+        { img: 'https://lh3.googleusercontent.com/d/1sc-Mg_QCyallGByntyQF7nnc84sffqHA', caption: 'العروس والعريس 12' },
+        { img: 'https://lh3.googleusercontent.com/d/1r_0j3s0sWA2tXZstp_uN7cXQhnGZzTyh', caption: 'العروس والعريس 13' },
+        { img: 'https://lh3.googleusercontent.com/d/1uyQlxPuliObhfe9dP7NnPSbKs07BouL0', caption: 'العروس والعريس 14' },
+        { img: 'https://lh3.googleusercontent.com/d/1L5gDhlReOROcwA6mBIpaBZtwfDE_Qqt0', caption: 'العروس والعريس 14' },
+
+
 
         { img: 'https://lh3.googleusercontent.com/d/16pH3p-ZPgu5-ApLwfO9WblgUjYVCm_B6', caption: 'احتفال الزفاف 1' },
 
@@ -1772,6 +1901,21 @@
         { img: 'https://lh3.googleusercontent.com/d/1GfWFCCkBrXZ8E_zZtB_YDvCp6E-GmLaw', caption: 'الأصدقاء المرافقون للعريس' },
         { img: 'https://lh3.googleusercontent.com/d/1SxFW5WLwfaiVNTMRfgc7BpC0MquhNG02', caption: 'أمير وأنس' },
         { img: 'https://lh3.googleusercontent.com/d/1YowH0pp3ajXBIMcV9vqK14y0tLYWcP54', caption: 'أمير وأنس وصديق أنس' },
+
+        { img: 'https://lh3.googleusercontent.com/d/17FUL2Gz0VqAHJrkuYFbsmoqhbynyWRyf', caption: 'العريس ورفاقه المقربون 1' },
+        { img: 'https://lh3.googleusercontent.com/d/1Lnf3P9vQIcV2qI4DDi6LFY4L8uB1Wp-F', caption: 'العريس ورفاقه المقربون 2' },
+
+        { img: 'https://lh3.googleusercontent.com/d/1vQDbLcJySIdtyRIagfwTUMphnqEZ5eQS', caption: 'طارق وأمير 1' },
+        { img: 'https://lh3.googleusercontent.com/d/1AkvIpWmI3Qv6Cg0LyfrRRVVUU3Ok54va', caption: 'طارق وأمير 2' },
+        { img: 'https://lh3.googleusercontent.com/d/1fxa_hYuNDuHnS2shjCX7dqjdEdAyyI8v', caption: 'طارق وأمير 3' },
+        { img: 'https://lh3.googleusercontent.com/d/1L5sYDwGjNbU-3JeWG47Mi8m95EsBumiX', caption: 'طارق وأمير 4' },
+
+        { img: 'https://lh3.googleusercontent.com/d/1BcXTNMWMUWnZYOvn8NeKUxh_9DSm_Nud', caption: 'العريس وأصدقاؤه 1' },
+        { img: 'https://lh3.googleusercontent.com/d/14U5uRzTg6c_go8RKw5mDz14Utxif-G8g', caption: 'العريس وأصدقاؤه 2' },
+        { img: 'https://lh3.googleusercontent.com/d/1GSYlmOz4MroMSeofvP1P6qDd9j44Dcxv', caption: 'العريس وأصدقاؤه 3' },
+        { img: 'https://lh3.googleusercontent.com/d/1J9o0mIHFVvFr8nGejL9fvj81KDJK0BGY', caption: 'العريس وأصدقاؤه 4' },
+        
+                
 
         { img: 'https://lh3.googleusercontent.com/d/1jhSJFbdHrw1FZt-Ui2piAZsm4CTXV1Ah', caption: 'مكان الزفاف 1' },
         { img: 'https://lh3.googleusercontent.com/d/1JdYrHKLsy03qeNJTd9E240TXM2bCO2eM', caption: 'مكان الزفاف 2' },
@@ -1870,13 +2014,24 @@
 
       
       const miscellaneousPhotos = [
-          { img: 'https://lh3.googleusercontent.com/d/1hFK3_6EelRB5HVUcBrWuH9SsYWaKJHEN', caption: 'IMG_20251226_130059_428.jpg' },
-          { img: 'https://lh3.googleusercontent.com/d/1zTLMw3HP82LC-wXnJljyIiiXigG5WGeQ', caption: 'IMG_20251226_144535_305.jpg' },
-          { img: 'https://lh3.googleusercontent.com/d/1EvwFIcYbxE12oGYeBuMnGLVdmctMzFBc', caption: 'IMG_20251226_125825_651.jpg' },
-          { img: 'https://lh3.googleusercontent.com/d/1PGiZkQQQXK3_O5TukrIWWfxy_W8IgDZj', caption: 'IMG_20251228_172945_441.jpg' },
-          { img: 'https://lh3.googleusercontent.com/d/1RLecm8aZl_QaOSlXJ353i0MxBwmHWlc2', caption: 'IMG_20251228_173229_874.jpg' },
-          { img: 'https://lh3.googleusercontent.com/d/1F78_enAKpoqLPzBURYXdxQwnvwh5p4Z2', caption: 'IMG_20251228_173331_788.jpg' },
-          { img: 'https://lh3.googleusercontent.com/d/1Xb82nnq8mJPDNeLVoMjfbjFqni1-jmRp', caption: 'IMG_20251226_130114_327.jpg' }
+          { img: 'https://lh3.googleusercontent.com/d/1hFK3_6EelRB5HVUcBrWuH9SsYWaKJHEN', caption: 'مسجد خليفة 1' },
+          { img: 'https://lh3.googleusercontent.com/d/1zTLMw3HP82LC-wXnJljyIiiXigG5WGeQ', caption: 'مسجد خليفة 2' },
+          { img: 'https://lh3.googleusercontent.com/d/1EvwFIcYbxE12oGYeBuMnGLVdmctMzFBc', caption: 'مسجد خليفة 3' },
+          { img: 'https://lh3.googleusercontent.com/d/1Xb82nnq8mJPDNeLVoMjfbjFqni1-jmRp', caption: 'مسجد خليفة 4' },
+          { img: 'https://lh3.googleusercontent.com/d/1c2sPmWo7ayJ0b7Ou0cfbQmYrDdcLwrtm', caption: 'مسجد خليفة 4' },
+
+
+          { img: 'https://lh3.googleusercontent.com/d/1PGiZkQQQXK3_O5TukrIWWfxy_W8IgDZj', caption: 'منظر من الجبل 1' },
+          { img: 'https://lh3.googleusercontent.com/d/1RLecm8aZl_QaOSlXJ353i0MxBwmHWlc2', caption: 'منظر من الجبل 2' },
+          { img: 'https://lh3.googleusercontent.com/d/1F78_enAKpoqLPzBURYXdxQwnvwh5p4Z2', caption: 'منظر من الجبل 3' },
+
+          
+          { img: 'https://lh3.googleusercontent.com/d/1sxt5of2Irk-_v0AgjSunaS_9GP-zAX1_', caption: 'حفل زفاف 1' },
+          { img: 'https://lh3.googleusercontent.com/d/1aPfMv0yV0NN7ObVhynhcuuFw790GzTVR', caption: 'حفل زفاف 2' },
+          { img: 'https://lh3.googleusercontent.com/d/1k_dUIrY7sFyO_vEnvS62Kx18S30LkVbk', caption: 'حفل زفاف 3' },
+          { img: 'https://lh3.googleusercontent.com/d/1ptkJKyDk9s4UPBBRbWkx-L54XwQ9Y65r', caption: 'حفل زفاف 4' },
+          { img: 'https://lh3.googleusercontent.com/d/1bt-zf4W0nLrKZcDMDH_ktWuLmEW6Q6hZ', caption: 'حفل زفاف 5' },
+          { img: 'https://lh3.googleusercontent.com/d/1U3iZQkeh3wtKcqI-SnHNgHHDukDHjNWv', caption: 'حفل زفاف 6' },
       ];
 
 
@@ -2604,6 +2759,31 @@
               }
           });
       }
+
+      // ============================================
+      // SIMPLE GOOGLE DRIVE LIMIT BANNER
+      // ============================================
+      
+      // Close banner functionality
+      document.addEventListener('DOMContentLoaded', function() {
+          const closeBtn = document.getElementById('close-banner-btn');
+          const banner = document.getElementById('drive-limit-banner');
+          
+          if (closeBtn && banner) {
+              closeBtn.addEventListener('click', function() {
+                  banner.style.display = 'none';
+                  // Remove the body padding since banner is gone
+                  document.body.style.paddingTop = '0';
+              });
+          }
+          
+          // Optionally, hide banner after 30 seconds
+          setTimeout(function() {
+              if (banner && banner.style.display !== 'none') {
+                  banner.style.opacity = '0.7';
+              }
+          }, 30000);
+      });
     </script>
         <!-- Video Expand Modal -->
     <div class="video-modal" id="video-modal">
